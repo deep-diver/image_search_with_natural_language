@@ -1,8 +1,8 @@
 # Image Search with Natural Language in GCP environment
 
-This project shows how to build an image search utility using natural language queries. Our aim is to use different and related serverless GCP services to demonstrate this. At the core of our project is [OpenAI's CLIP model](https://openai.com/blog/clip/). It makes use of two encoders - one for images and one for texts. Each encoder is trained to learn representations such that the similar images and text embeddings are projected as close as possible. 
+This project shows how to build an image search utility using natural language queries. Our aim is to use different and related serverless GCP services to demonstrate this. At the core of our project is [OpenAI's CLIP model](https://openai.com/blog/clip/). It makes use of two encoders - one for images and one for texts. Each encoder is trained to learn representations such that similar images and text embeddings are projected as close as possible. 
 
-Following depicts the base architecture design of our application
+Following depicts the base architecture design of our application:
 
 <p align="center">
 <img width="659" alt="figure" src="https://user-images.githubusercontent.com/26025527/122719991-e0ef0980-d2a9-11eb-9ab0-e5b99e6f99f8.png">
