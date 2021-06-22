@@ -13,7 +13,7 @@ class Searcher:
         :param semantic_query: Query to find semantically similar images retrieved from Pixabay.
         :param pixabay_max: Number of maximum images to retrieve from Pixabay.
         :param top_k: Top-k images to return.
-        :return: List of top-k PIL images.
+        :return: List of top-k image URLs.
         """
         keyword_images, keyword_image_urls = fetch_images_tag(keyword, pixabay_max)
 

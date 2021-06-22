@@ -21,6 +21,7 @@ def fetch_images_tag(pixabay_search_keyword, num_images):
     :param pixabay_search_keyword: Keyword to perform the search on Pixabay.
     :param num_images: Number of images to retrieve.
     :return: List of PIL images.
+    :return: List of image URLs.
     """
     query = (
         PIXABAY_API

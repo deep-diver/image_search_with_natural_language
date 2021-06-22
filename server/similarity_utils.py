@@ -22,7 +22,7 @@ class SimilarityUtil:
         :param query_phrase: A list containing a single text query,
         e.g. "Tiger drinking water".
         :param top_k: Number of top images to return from `images`.
-        :return: Top-k images matching the query semantically and
+        :return: Top-k indicies matching the query semantically and
         their similarity scores.
         """
         # Obtain the text-image similarity scores
