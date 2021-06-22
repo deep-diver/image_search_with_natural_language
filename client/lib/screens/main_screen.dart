@@ -26,7 +26,16 @@ class _MainScreenState extends State<MainScreen> {
           children: [
             TextFormField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: 'Enter Query'),
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter keywords to search Pixabay'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter Semantic Search Query'),
               // maxLines: 3,
               keyboardType: TextInputType.multiline,
             ),
