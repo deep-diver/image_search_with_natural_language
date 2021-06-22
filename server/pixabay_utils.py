@@ -5,12 +5,13 @@ References:
 
 from io import BytesIO
 from PIL import Image
-import logging
 import requests
+import logging
 import time
+import os
 
 ORIGINAL_API = "https://pixabay.com/api/?key="
-API_KEY = ""  # Change it
+API_KEY = os.environ["PIXABAY_API_KEY"]
 PIXABAY_API = ORIGINAL_API + API_KEY
 
 
@@ -39,14 +40,16 @@ def fetch_images_tag(pixabay_search_keyword, num_images):
     output = response.json()
 
     all_images = []
+    all_image_urls = []
     start_time = time.time()
     for each in output["hits"]:
         imageurl = each["webformatURL"]
         response = requests.get(imageurl)
         image = Image.open(BytesIO(response.content)).convert("RGB")
         all_images.append(image)
+        all_image_urls.append(imageurl)
 
     end_time = time.time() - start_time
     logging.info(f"Fetched individual results in {end_time:.3f} " f"seconds.")
 
-    return all_images
+    return all_images, all_image_urls

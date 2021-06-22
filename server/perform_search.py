@@ -15,10 +15,12 @@ class Searcher:
         :param top_k: Top-k images to return.
         :return: List of top-k PIL images.
         """
-        keyword_images = fetch_images_tag(keyword, pixabay_max)
+        keyword_images, keyword_image_urls = fetch_images_tag(keyword, pixabay_max)
 
-        (top_images, top_scores) = self.similarity_model.perform_sim_search(
+        (top_indicies, top_scores) = self.similarity_model.perform_sim_search(
             semantic_query, keyword_images, top_k
         )
 
-        return (top_images, top_scores)
+        top_urls = [keyword_image_urls[index] for index in top_indicies]
+
+        return (top_urls, top_scores)

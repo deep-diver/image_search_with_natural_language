@@ -40,9 +40,8 @@ class SimilarityUtil:
         logits_per_image = outputs.logits_per_image
 
         top_indices, top_scores = self.sort_scores(logits_per_image, top_k)
-        top_images = [images[index] for index in top_indices]
 
-        return (top_images, top_scores)
+        return (top_indices, top_scores)
 
     def sort_scores(self, scores, top_k):
         """
