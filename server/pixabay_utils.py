@@ -5,12 +5,13 @@ References:
 
 from io import BytesIO
 from PIL import Image
-import logging
 import requests
+import logging
 import time
+import os
 
 ORIGINAL_API = "https://pixabay.com/api/?key="
-API_KEY = ""  # Change it
+API_KEY = os.environ["PIXABAY_API_KEY"]
 PIXABAY_API = ORIGINAL_API + API_KEY
 
 
