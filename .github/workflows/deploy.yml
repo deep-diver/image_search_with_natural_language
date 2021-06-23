@@ -16,6 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
+      - name: Inject environtment variable to app.yml
+        run: envsubst < ./server/app.yaml | tee ./server/app.yaml
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      
       - name: Setup Gcloud Service Account
         uses: google-github-actions/setup-gcloud@master
         with:
