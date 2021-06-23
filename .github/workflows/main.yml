@@ -1,4 +1,4 @@
-name: CI
+name: Flutter Web Build and Deployment
 
 on:
   push:
