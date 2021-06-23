@@ -1,4 +1,4 @@
-from server.perform_search import Searcher
+from perform_search import Searcher
 from flask import Flask, jsonify, request
 
 
@@ -16,6 +16,9 @@ def get_images():
 
     return jsonify({"top_urls": top_urls, "top_scores": top_scores})
 
+@app.route("/test", methods=["GET"])
+def get_images():
+    return jsonify({"result": "good to go"})
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=8080, debug=True)
+    app.run(host="127.0.0.1", port=8080, debug=True)
