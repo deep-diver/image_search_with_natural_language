@@ -7,6 +7,9 @@ handlers:
   secure: always
   script: auto
 
+env_variables:
+  PIXABAY_API_KEY: ${PIXABAY_API_KEY}
+
 automatic_scaling:
   target_cpu_utilization: 0.65
   min_instances: 5
