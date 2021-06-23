@@ -12,6 +12,7 @@ runtime_config:
 
 env_variables:
   PIXABAY_API_KEY: ${PIXABAY_API_KEY}
+  PORT: 8080
 
 manual_scaling:
   instances: 1
