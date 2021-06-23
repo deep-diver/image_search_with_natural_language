@@ -1,3 +1,5 @@
+[![Flutter Web Build and Deployment](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml/badge.svg)](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml) [![Deploy an App Engine app](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/deploy.yml/badge.svg)](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/deploy.yml)
+
 # Image Search with Natural Language in GCP environment
 
 This project shows how to build an image search utility using natural language queries. Our aim is to use different and related serverless GCP services to demonstrate this. At the core of our project is [OpenAI's CLIP model](https://openai.com/blog/clip/). It makes use of two encoders - one for images and one for texts. Each encoder is trained to learn representations such that similar images and text embeddings are projected as close as possible. 
