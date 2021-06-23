@@ -16,8 +16,10 @@ jobs:
       string: ${{ steps.changestring.outputs.string}}
 
     steps:
-      - name: Set up AppEngine deployer.
+      - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Set up AppEngine deployer.
         uses: google-github-actions/deploy-appengine@v0.1.0
         with:
           project: ${{ secrets.gcp_project }}
