@@ -6,15 +6,12 @@ on:
   pull_request:
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: server
-
 jobs:
   commit:
     runs-on: ubuntu-latest
-    outputs:
-      string: ${{ steps.changestring.outputs.string}}
+    defaults:
+      run:
+        working-directory: server
 
     steps:
       - uses: actions/checkout@v2
