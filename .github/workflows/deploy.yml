@@ -6,6 +6,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: server
+
 jobs:
   commit:
     runs-on: ubuntu-latest
