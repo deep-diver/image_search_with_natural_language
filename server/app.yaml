@@ -1,4 +1,5 @@
 runtime: python39
+instance_class: F4_1G
 
 handlers:
 - url: /.*
