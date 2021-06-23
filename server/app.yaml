@@ -1,13 +1,14 @@
 runtime: python
 env: flex
+entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
 
-handlers:
-- url: /.*
-  secure: always
-  script: auto
+# handlers:
+# - url: /.*
+#   secure: always
+#   script: auto
 
 env_variables:
   PIXABAY_API_KEY: ${PIXABAY_API_KEY}

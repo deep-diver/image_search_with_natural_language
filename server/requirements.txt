@@ -4,3 +4,4 @@ torch
 torchvision
 numpy
 flask
+gunicorn==19.3.0
