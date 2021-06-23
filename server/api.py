@@ -16,6 +16,9 @@ def get_images():
 
     return jsonify({"top_urls": top_urls, "top_scores": top_scores})
 
+@app.route("/test", methods=["GET"])
+def get_images():
+    return jsonify({"result": "good to go"})
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8080, debug=True)
