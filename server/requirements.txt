@@ -3,3 +3,4 @@ ftfy
 torch
 torchvision
 numpy
+flask
