@@ -53,4 +53,4 @@ def fetch_images_tag(pixabay_search_keyword, num_images):
     end_time = time.time() - start_time
     logging.info(f"Fetched individual results in {end_time:.3f} " f"seconds.")
 
-    return all_images, all_image_urls
+    return (all_images, all_image_urls)

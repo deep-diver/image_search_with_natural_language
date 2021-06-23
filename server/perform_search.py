@@ -13,14 +13,14 @@ class Searcher:
         :param semantic_query: Query to find semantically similar images retrieved from Pixabay.
         :param pixabay_max: Number of maximum images to retrieve from Pixabay.
         :param top_k: Top-k images to return.
-        :return: List of top-k image URLs.
+        :return: Tuple of top_k URLs and the similarity scores of the images present inside the URLs.
         """
-        keyword_images, keyword_image_urls = fetch_images_tag(keyword, pixabay_max)
+        (keyword_images, keyword_image_urls) = fetch_images_tag(keyword, pixabay_max)
 
-        (top_indicies, top_scores) = self.similarity_model.perform_sim_search(
+        (top_indices, top_scores) = self.similarity_model.perform_sim_search(
             semantic_query, keyword_images, top_k
         )
 
-        top_urls = [keyword_image_urls[index] for index in top_indicies]
+        top_urls = [keyword_image_urls[index] for index in top_indices]
 
         return (top_urls, top_scores)

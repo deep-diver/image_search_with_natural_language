@@ -22,7 +22,7 @@ class SimilarityUtil:
         :param query_phrase: A list containing a single text query,
         e.g. "Tiger drinking water".
         :param top_k: Number of top images to return from `images`.
-        :return: Top-k indicies matching the query semantically and
+        :return: Top-k indices matching the query semantically and
         their similarity scores.
         """
         # Obtain the text-image similarity scores
@@ -39,7 +39,7 @@ class SimilarityUtil:
         # Image-text similarity scores
         logits_per_image = outputs.logits_per_image
 
-        top_indices, top_scores = self.sort_scores(logits_per_image, top_k)
+        (top_indices, top_scores) = self.sort_scores(logits_per_image, top_k)
 
         return (top_indices, top_scores)
 
