@@ -3,8 +3,6 @@ runtime: python39 # or another supported version
 instance_class: F4_1G
 
 handlers:
-- url: /search
-
 - url: /.*
   secure: always
   redirect_http_response_code: 301
