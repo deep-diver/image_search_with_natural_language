@@ -21,6 +21,7 @@ def fetch_images_tag(pixabay_search_keyword, num_images):
     :param pixabay_search_keyword: Keyword to perform the search on Pixabay.
     :param num_images: Number of images to retrieve.
     :return: List of PIL images.
+    :return: List of image URLs.
     """
     query = (
         PIXABAY_API
@@ -40,14 +41,16 @@ def fetch_images_tag(pixabay_search_keyword, num_images):
     output = response.json()
 
     all_images = []
+    all_image_urls = []
     start_time = time.time()
     for each in output["hits"]:
         imageurl = each["webformatURL"]
         response = requests.get(imageurl)
         image = Image.open(BytesIO(response.content)).convert("RGB")
         all_images.append(image)
+        all_image_urls.append(imageurl)
 
     end_time = time.time() - start_time
     logging.info(f"Fetched individual results in {end_time:.3f} " f"seconds.")
 
-    return all_images
+    return all_images, all_image_urls
