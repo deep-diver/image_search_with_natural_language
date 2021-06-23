@@ -1,4 +1,4 @@
-from server.perform_search import Searcher
+from perform_search import Searcher
 from flask import Flask, jsonify, request
 
 
