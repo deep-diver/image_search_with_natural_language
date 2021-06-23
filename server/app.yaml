@@ -1,31 +1,17 @@
-runtime: python
-env: flex
-entrypoint: gunicorn -b :$PORT main:app
+runtime: python39
 
-runtime_config:
-  python_version: 3
-
-# handlers:
-# - url: /.*
-#   secure: always
-#   script: auto
+handlers:
+- url: /.*
+  secure: always
+  script: auto
 
 env_variables:
   PIXABAY_API_KEY: ${PIXABAY_API_KEY}
-  PORT: 8080
 
-manual_scaling:
-  instances: 1
-
-resources:
-  cpu: 4
-  memory_gb: 6.5
-  disk_size_gb: 20
-
-# automatic_scaling:
-#   target_cpu_utilization: 0.65
-#   min_instances: 1
-#   max_instances: 2
-#   min_pending_latency: 30ms
-#   max_pending_latency: automatic
-#   max_concurrent_requests: 50
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 1
+  min_pending_latency: 30ms
+  max_pending_latency: automatic
+  max_concurrent_requests: 50
