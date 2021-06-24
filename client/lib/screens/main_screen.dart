@@ -1,4 +1,6 @@
+import 'package:client/rest_client.dart';
 import 'package:client/widgets/image_grid.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 const appName = 'Image Search with Natural Language';
@@ -13,6 +15,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   bool isFetching = false;
+  RestClient client = RestClient();
+  List<String> topUrls = [];
+  final tagController = TextEditingController();
+  final queryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           children: [
             TextFormField(
+              controller: tagController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter keywords to search Pixabay'),
@@ -33,6 +40,7 @@ class _MainScreenState extends State<MainScreen> {
               height: 10,
             ),
             TextFormField(
+              controller: queryController,
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter Semantic Search Query'),
@@ -52,9 +60,11 @@ class _MainScreenState extends State<MainScreen> {
                 style: TextStyle(fontSize: 24),
               ),
               onPressed: () {
-                setState(() {
-                  isFetching = true;
-                });
+                if (tagController.text != "" || queryController.text != "") {
+                  setState(() {
+                    isFetching = true;
+                  });
+                }
               },
             ),
             SizedBox(
@@ -68,10 +78,28 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget getImageGridWidget() {
-    if (!isFetching) {
-      return CircularProgressIndicator();
-    }
+    if (isFetching) {
+      return FutureBuilder<List<String>>(
+        future: client.fetchSematicPhotos(
+            http.Client(), tagController.text, queryController.text, 10),
+        builder: (context, AsyncSnapshot<List<String>> snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-    return Expanded(child: ImageGridWidget());
+          topUrls = snapshot.data!;
+          isFetching = false;
+
+          return ImageGridWidget(topUrls: topUrls);
+        },
+      );
+    } else {
+      return Container();
+    }
+  }
+
+  Widget getItemCard(String url) {
+    return Container(
+        padding: EdgeInsets.only(left: 5, right: 5), child: Image.network(url));
   }
 }
