@@ -58,4 +58,4 @@ class SimilarityUtil:
             score = score.numpy().tolist()
             top_scores.append(round(score, 3))
 
-        return (top_scores, top_indices)
+        return (top_indicies, top_scores)

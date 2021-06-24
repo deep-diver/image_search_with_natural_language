@@ -18,7 +18,7 @@ class Searcher:
         (keyword_images, keyword_image_urls) = fetch_images_tag(keyword, pixabay_max)
 
         (top_indices, top_scores) = self.similarity_model.perform_sim_search(
-            semantic_query, keyword_images, top_k
+            keyword_images, semantic_query, top_k
         )
 
         top_urls = [keyword_image_urls[index] for index in top_indices]
