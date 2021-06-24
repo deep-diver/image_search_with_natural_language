@@ -5,15 +5,15 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 searcher = Searcher()
 
-PIXABAY_SEARCH_MAX = 200
+MAX_PIXABAY_SEARCH = 30
 
 @app.route("/search", methods=["GET"])
 def get_images():
-    tag = request.args.get("t")
-    query = request.args.get("s_query")
-    top_k = request.args.get("k")
+    tag = request.get("t")
+    query = request.get("s_query")
+    top_k = request.get("k")
 
-    (top_urls, top_scores) = searcher.get_similar_images(tag, query, PIXABAY_SEARCH_MAX, top_k)
+    (top_urls, top_scores) = searcher.get_similar_images(tag, query, MAX_PIXABAY_SEARCH, int(top_k))
 
     return jsonify({"top_urls": top_urls, "top_scores": top_scores})
 
