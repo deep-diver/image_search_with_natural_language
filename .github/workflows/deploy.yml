@@ -1,36 +1,36 @@
-name: Deploy an App Engine app
+# name: Deploy an App Engine app
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#   workflow_dispatch:
 
-jobs:
-  commit:
-    runs-on: ubuntu-latest
-    outputs:
-      string: ${{ steps.changestring.outputs.string}}
+# jobs:
+#   commit:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       string: ${{ steps.changestring.outputs.string}}
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
       
-      - name: Inject environtment variable to app.yml
-        run: envsubst < ./server/app.yaml | tee ./server/app.yaml
-        env:
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+#       - name: Inject environtment variable to app.yml
+#         run: envsubst < ./server/app.yaml | tee ./server/app.yaml
+#         env:
+#           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       
-      - name: Setup Gcloud Service Account
-        uses: google-github-actions/setup-gcloud@master
-        with:
-          version: '290.0.1'
-          service_account_key: ${{ secrets.gcp_credentials }}
-          export_default_credentials: true      
+#       - name: Setup Gcloud Service Account
+#         uses: google-github-actions/setup-gcloud@master
+#         with:
+#           version: '290.0.1'
+#           service_account_key: ${{ secrets.gcp_credentials }}
+#           export_default_credentials: true      
       
-      - name: Deploy App Engine
-        uses: google-github-actions/deploy-appengine@main
-        with:
-          working_directory: server
-          project_id: ${{ secrets.gcp_project }}
-          deliverables: app.yaml
+#       - name: Deploy App Engine
+#         uses: google-github-actions/deploy-appengine@main
+#         with:
+#           working_directory: server
+#           project_id: ${{ secrets.gcp_project }}
+#           deliverables: app.yaml
