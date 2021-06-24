@@ -1,3 +1,4 @@
+regex
 transformers
 ftfy
 torch
