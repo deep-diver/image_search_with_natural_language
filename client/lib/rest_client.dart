@@ -1,12 +1,26 @@
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class RestClient {
-  Future<void> send() async {
-    var url = Uri.parse('https://example.com/whatsit/create');
-    var response = await http.get(url);
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
+  List<String>? parseSemantics(String responseBody) {
+    final parsed = jsonDecode(responseBody)['top_urls'];
+    List<String>? urls = parsed != null ? List.from(parsed) : null;
+    return urls;
+  }
 
-    // print(await http.read('https://example.com/foobar.txt'));
+  Future<List<String>> fetchSematicPhotos(
+      http.Client client, String tag, String semanticQuery, int topK) async {
+    tag = Uri.encodeComponent(tag);
+    semanticQuery = Uri.encodeComponent(semanticQuery);
+    final response = await client.get(Uri.parse(
+        'http://34.70.149.217:8080/search?t=$tag&s_query=$semanticQuery&k=${topK.toString()}'));
+
+    print('$tag + $semanticQuery');
+
+    List<String>? urls = parseSemantics(response.body);
+    if (urls != null) {
+      return urls;
+    }
+    return [];
   }
 }
