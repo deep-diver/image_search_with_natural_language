@@ -5,6 +5,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 searcher = Searcher()
 
+PIXABAY_SEARCH_MAX = 200
 
 @app.route("/search", methods=["GET"])
 def get_images():
@@ -12,12 +13,12 @@ def get_images():
     query = request.get("s_query")
     top_k = request.get("k")
 
-    (top_urls, top_scores) = searcher.get_similar_images(tag, query, top_k)
+    (top_urls, top_scores) = searcher.get_similar_images(tag, query, PIXABAY_SEARCH_MAX, top_k)
 
     return jsonify({"top_urls": top_urls, "top_scores": top_scores})
 
 @app.route("/test", methods=["GET"])
-def get_images():
+def test():
     return jsonify({"result": "good to go"})
 
 if __name__ == "__main__":
