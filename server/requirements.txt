@@ -1,4 +1,3 @@
-transformers
 ftfy
 torch
 torchvision
