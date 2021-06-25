@@ -11,12 +11,21 @@ class ImageGridWidget extends StatelessWidget {
       child: GridView.count(
           crossAxisCount: 2,
           children: List.generate(
-              topUrls.length, (index) => getItemCard(topUrls[index]))),
+              topUrls.length, (index) => getItemCard(context, topUrls[index]))),
     );
   }
 
-  Widget getItemCard(String url) {
-    return Container(
-        padding: EdgeInsets.only(left: 5, right: 5), child: Image.network(url));
+  Widget getItemCard(BuildContext context, String url) {
+    return GestureDetector(
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (_) => SimpleDialog(
+                    children: [Image.network(url)],
+                  ));
+        },
+        child: Container(
+            padding: EdgeInsets.only(left: 5, right: 5),
+            child: Image.network(url)));
   }
 }
