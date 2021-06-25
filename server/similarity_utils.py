@@ -34,7 +34,7 @@ class SimilarityUtil:
             outputs = self.model(**inputs)
 
         end_time = time.time() - start_time
-        logging.info(f"Similarity search completed in {end_time:.3f} " f"seconds.")
+        logging.info(f"Similarity search completed in {end_time:.3f} seconds.")
 
         # Image-text similarity scores
         logits_per_image = outputs.logits_per_image
