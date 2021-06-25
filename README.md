@@ -28,5 +28,5 @@ We will add a demo GIF later.
 
 ## Participants
 
-- ML GDE, Paul Sayak (spsayakpaul@gmail.com)
 - ML GDE, Chansung Park (deep.diver.csp@gmail.com)
+- ML GDE, Paul Sayak (spsayakpaul@gmail.com)
