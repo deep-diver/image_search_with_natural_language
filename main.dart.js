@@ -35791,7 +35791,7 @@ var $async$tr=P.a4(function(e,f){if(e===1)return P.a6(f,r)
 while(true)switch(s){case 0:b=P.qM(C.jD,b,C.Q,!1)
 c=P.qM(C.jD,c,C.Q,!1)
 s=3
-return P.ad(a.rn("GET",P.wB("http://34.70.149.217:8080/search?t="+b+"&s_query="+c+"&k="+C.f.i(d)),null),$async$tr)
+return P.ad(a.rn("GET",P.wB("https://mlgde.com/search?t="+b+"&s_query="+c+"&k="+C.f.i(d)),null),$async$tr)
 case 3:p=f
 P.qY(b+" + "+c)
 o=J.b6(C.aX.Jl(0,B.avU(U.atI(p.e).c.a.h(0,"charset")).di(0,p.x),null),"top_urls")
