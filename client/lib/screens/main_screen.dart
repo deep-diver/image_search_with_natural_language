@@ -174,6 +174,7 @@ class _MainScreenState extends State<MainScreen> {
                 onPressed: isFetching
                     ? null
                     : () async {
+                        FocusScope.of(context).unfocus();
                         setState(() {
                           isInitialPhase = false;
                           topUrls = [];
