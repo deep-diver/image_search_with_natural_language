@@ -1,8 +1,14 @@
 from perform_search import Searcher
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={
+  r"/search/*": {"origin": "*"},
+  r"/test/*": {"origin": "*"},
+})
+
 searcher = Searcher()
 
 MAX_PIXABAY_SEARCH = 30
@@ -22,4 +28,4 @@ def test():
     return jsonify({"result": "good to go"})
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run(port=8080, debug=True)
