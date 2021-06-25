@@ -13,7 +13,7 @@ class RestClient {
     tag = Uri.encodeComponent(tag);
     semanticQuery = Uri.encodeComponent(semanticQuery);
     final response = await client.get(Uri.parse(
-        'http://34.70.149.217:8080/search?t=$tag&s_query=$semanticQuery&k=${topK.toString()}'));
+        'https://mlgde.com/search?t=$tag&s_query=$semanticQuery&k=${topK.toString()}'));
 
     print('$tag + $semanticQuery');
 
