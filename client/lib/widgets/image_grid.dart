@@ -18,6 +18,7 @@ class ImageGridWidget extends StatelessWidget {
   Widget getItemCard(BuildContext context, String url) {
     return GestureDetector(
         onTap: () {
+          FocusScope.of(context).unfocus();
           showDialog(
               context: context,
               builder: (_) => SimpleDialog(

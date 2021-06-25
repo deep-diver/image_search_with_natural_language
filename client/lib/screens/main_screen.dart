@@ -217,26 +217,6 @@ class _MainScreenState extends State<MainScreen> {
       return const Center(child: CircularProgressIndicator());
     });
   }
-  // Future<Widget> getImageGridWidget() {
-
-  //   if (isFetching) {
-  //     return FutureBuilder<List<String>>(
-  //       future: client.fetchSematicPhotos(
-  //           http.Client(), tagController.text, queryController.text, 10),
-  //       builder: (context, AsyncSnapshot<List<String>> snapshot) {
-  //         if (!snapshot.hasData) {
-  //           return const Center(child: CircularProgressIndicator());
-  //         }
-
-  //         topUrls = snapshot.data!;
-
-  //         return ImageGridWidget(topUrls: topUrls);
-  //       },
-  //     );
-  //   }
-
-  //   return ImageGridWidget(topUrls: topUrls);
-  // }
 
   Widget getItemCard(String url) {
     return Container(
