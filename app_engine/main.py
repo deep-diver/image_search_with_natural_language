@@ -24,14 +24,16 @@ def get_images():
     query = request.args.get("s_query")
     top_k = request.args.get("k")
 
-    if client.get(tag):
-        result = json.loads(client.get(tag))
+    if client.get(query):
+        result = json.loads(client.get(query))
         top_urls = result["top_urls"]
         top_scores = result["top_scores"]
+        return jsonify({"top_urls": top_urls, "top_scores": top_scores})
 
     else:
         parameters = {"t": tag, "s_query": query, "k": top_k}
         response = requests.get("https://mlgde.com/search", params=parameters)
+
         if response.status_code == 200:
             json_response = response.json()
             top_urls = json_response["top_urls"]
@@ -39,15 +41,18 @@ def get_images():
             results = {"top_urls": top_urls, "top_scores": top_scores}
 
             with client.pipeline() as pipe:
-                pipe.set(tag, json.dumps(results).encode("utf-8"))
+                pipe.set(query, json.dumps(results).encode("utf-8"))
                 pipe.execute()
 
-    return jsonify({"top_urls": top_urls, "top_scores": top_scores})
+            return jsonify({"top_urls": top_urls, "top_scores": top_scores})
+
+        elif response.status_code != 200:
+            return jsonify({"error": str(response.status_code)})
 
 
 @app.route("/test", methods=["GET"])
 def test():
-    return jsonify({"result": "Good to go."})
+    return jsonify({"result": "good to go."})
 
 
 if __name__ == "__main__":
