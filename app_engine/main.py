@@ -21,7 +21,7 @@ client = redis_connection.get_client()
 @app.route("/search", methods=["GET"])
 def get_images():
     tag = request.args.get("t")
-    query = request.args.get("s_query")
+    query = request.args.get("s_query").lower()
     top_k = request.args.get("k")
 
     if client.get(query):
