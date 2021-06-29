@@ -15,8 +15,8 @@ MAX_PIXABAY_SEARCH = 30
 
 @app.route("/search", methods=["GET"])
 def get_images():
-    tag = request.args.get("t")
-    query = request.args.get("s_query")
+    tag = request.args.get("t").lower()
+    query = request.args.get("s_query").lower()
     top_k = request.args.get("k")
 
     (top_urls, top_scores) = searcher.get_similar_images(tag, query, MAX_PIXABAY_SEARCH, int(top_k))

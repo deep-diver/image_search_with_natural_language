@@ -7,3 +7,4 @@ numpy
 flask
 gunicorn==19.3.0
 flask-cors
+direct-redis
