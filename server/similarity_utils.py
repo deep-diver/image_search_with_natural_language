@@ -12,6 +12,7 @@ class SimilarityUtil:
     def __init__(self):
         self.model = CLIPModel.from_pretrained(CLIP_MODEL)
         self.processor = CLIPProcessor.from_pretrained(CLIP_PREPROCESSOR)
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         logging.info("Model and preprocessor loaded.")
 
     def perform_sim_search(self, images, query_phrase, top_k=3):
@@ -25,13 +26,15 @@ class SimilarityUtil:
         :return: Top-k indices matching the query semantically and
         their similarity scores.
         """
+        model = self.model.to(self.device)
         # Obtain the text-image similarity scores
         with torch.no_grad():
             inputs = self.processor(
                 text=[query_phrase], images=images, return_tensors="pt", padding=True
             )
+            inputs = inputs.to(self.device)
             start_time = time.time()
-            outputs = self.model(**inputs)
+            outputs = model(**inputs)
 
         end_time = time.time() - start_time
         logging.info(f"Similarity search completed in {end_time:.3f} seconds.")
