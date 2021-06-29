@@ -40,7 +40,7 @@ class SimilarityUtil:
         logging.info(f"Similarity search completed in {end_time:.3f} seconds.")
 
         # Image-text similarity scores
-        logits_per_image = outputs.logits_per_image
+        logits_per_image = outputs.logits_per_image.cpu()
 
         (top_indices, top_scores) = self.sort_scores(logits_per_image, top_k)
 
