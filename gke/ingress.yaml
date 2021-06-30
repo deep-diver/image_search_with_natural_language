@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gde
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: gde
+    networking.gke.io/managed-certificates: gde
+    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: gde
+            port:
+              number: 80

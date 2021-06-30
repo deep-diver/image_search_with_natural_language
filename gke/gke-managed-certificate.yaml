@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: gde
+spec:
+  domains:
+    # should be replaced once GitHub Action is set up
+    - mlgde.com

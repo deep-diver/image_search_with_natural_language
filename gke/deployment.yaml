@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: clip-search
+  name: clip-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clip-search
+  template:
+    metadata:
+      labels:
+        app: clip-search
+    spec:
+      containers:
+      # image registry URI should be replaced once GitHub Action is set up
+      - image: gcr.io/titanium-vision-318200/search_service
+        name: search-service-p4sml
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /alive
+            port: 8080
+          initialDelaySeconds: 90
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 90
+          periodSeconds: 10
+        resources: 
+          limits:
+            cpu: 1500m
+            memory: 4G
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: clip-search-hpa
+
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1
+   kind: Deployment
+   name: clip-search
+ minReplicas: 1
+ maxReplicas: 3
+ targetCPUUtilizationPercentage: 80
