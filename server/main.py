@@ -1,9 +1,12 @@
 from perform_search import Searcher
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-
+from flask_healthz import healthz
+from flask_healthz import HealthError
 
 app = Flask(__name__)
+app.register_blueprint(healthz, url_prefix="/")
+
 cors = CORS(
     app,
     resources={
@@ -12,10 +15,31 @@ cors = CORS(
     },
 )
 
+def printok():
+    print("Everything is fine")
+
+def liveness():
+    try:
+        printok()
+    except Exception:
+        raise HealthError("Can't connect to the file")
+
+def readiness():
+    try:
+        printok()
+    except Exception:
+        raise HealthError("Can't connect to the file")
+
+app.config.update(
+    HEALTHZ = {
+        "alive": "main.liveness",
+        "ready": "main.readiness",
+    }
+)
+
 searcher = Searcher()
 
 MAX_PIXABAY_SEARCH = 30
-
 
 @app.route("/search", methods=["GET"])
 def get_images():
@@ -36,4 +60,4 @@ def test():
 
 
 if __name__ == "__main__":
-    app.run(port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
