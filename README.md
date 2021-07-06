@@ -1,4 +1,4 @@
-[![Flutter Web Build and Deployment](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml/badge.svg)](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml) [![Deploy an App Engine app](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/deploy.yml/badge.svg)](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/deploy.yml)
+[![Flutter Web Build and Deployment](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml/badge.svg)](https://github.com/deep-diver/image_search_with_natural_language/actions/workflows/main.yml) 
 
 # Image Search with Natural Language in GCP environment
 
