@@ -12,7 +12,7 @@ Following depicts the architecture design of our application:
 
 Here's a live application demo:
 
-https://i.ibb.co/t2PGbV5/with-memorystore2-only-CPU.gif
+![](https://i.ibb.co/t2PGbV5/with-memorystore2-only-CPU.gif)
 
 For details, please refer to this blog post (link to be updated.)
 
