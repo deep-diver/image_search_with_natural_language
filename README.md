@@ -4,29 +4,24 @@
 
 This project shows how to build an image search utility using natural language queries. Our aim is to use different and related serverless GCP services to demonstrate this. At the core of our project is [OpenAI's CLIP model](https://openai.com/blog/clip/). It makes use of two encoders - one for images and one for texts. Each encoder is trained to learn representations such that similar images and text embeddings are projected as close as possible. 
 
-Following depicts the base architecture design of our application:
+Following depicts the architecture design of our application:
 
 <p align="center">
-<img width="659" alt="figure" src="https://user-images.githubusercontent.com/26025527/122719991-e0ef0980-d2a9-11eb-9ab0-e5b99e6f99f8.png">
-</p>
+<img width="800" alt="figure" src="https://i.ibb.co/qxdPdJd/architecture-diagram.png">
+</p><br>
 
-We will add a demo GIF later. 
+Here's a live application demo:
 
-## Planning (1st phase)
 
-**Model Serving**
-- [ ] Exposing RestAPI endpoint
-- [ ] Loading [OpenAI CLIP model](https://github.com/openai/CLIP) or [HuggingFace CLIP model](https://huggingface.co/transformers/model_doc/clip.html)
-- [ ] Calculating Cosine Similarities Based on a Given Text Query
-- [ ] Sending the Most Similar Pictures (Top-K, Configurable via RestAPI) to the Client
+https://user-images.githubusercontent.com/22957388/124558759-926c6e00-de58-11eb-8d3a-88e919655ca5.mp4
 
-**Flutter Client Application**
-- [ ] UI Design
-- [ ] Connection to RestAPI Server
-- [ ] Sending query / Receiving Resulting Pictures
-- [ ] Displaying the Received Resulting PIctures
+
+You can also visit this URL for interacting with the application: http://deep-diver.github.io/image_search_with_natural_language/.
+
+
+For details, please refer to this blog post (link to be updated.)
 
 ## Participants
 
-- ML GDE, Chansung Park (deep.diver.csp@gmail.com)
-- ML GDE, Paul Sayak (spsayakpaul@gmail.com)
+- ML GDE, [Chansung Park](https://twitter.com/algo_diver)
+- ML GDE, [Paul Sayak](https://twitter.com/RisingSayak)
