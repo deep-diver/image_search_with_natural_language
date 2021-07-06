@@ -7,14 +7,12 @@ This project shows how to build an image search utility using natural language q
 Following depicts the architecture design of our application:
 
 <p align="center">
-<img width="659" alt="figure" src="https://i.ibb.co/qxdPdJd/architecture-diagram.png">
+<img width="800" alt="figure" src="https://i.ibb.co/qxdPdJd/architecture-diagram.png">
 </p><br>
 
 Here's a live application demo:
 
-<p align="center">
-	<img width="659" alt="figure" src="https://i.ibb.co/t2PGbV5/with-memorystore2-only-CPU.gif">
-</p><br>
+https://i.ibb.co/t2PGbV5/with-memorystore2-only-CPU.gif
 
 For details, please refer to this blog post (link to be updated.)
 
