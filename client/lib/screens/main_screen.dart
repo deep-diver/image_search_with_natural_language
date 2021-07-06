@@ -100,18 +100,18 @@ class _MainScreenState extends State<MainScreen> {
                                     child: CircleAvatar(
                                       radius: 28.0,
                                       backgroundImage:
-                                          AssetImage('images/paul.png'),
+                                          AssetImage('images/chansung.png'),
                                     )),
                                 SizedBox(
                                   width: 10,
-                                ),
+                                ),                                
                                 CircleAvatar(
                                     backgroundColor: Colors.amber,
                                     radius: 30.0,
                                     child: CircleAvatar(
                                       radius: 28.0,
                                       backgroundImage:
-                                          AssetImage('images/chansung.png'),
+                                          AssetImage('images/paul.png'),
                                     )),
                                 Expanded(
                                     child: Column(children: [
@@ -125,9 +125,9 @@ class _MainScreenState extends State<MainScreen> {
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  Text('Paul Sayak',
-                                      style: TextStyle(fontSize: 12)),
                                   Text('Chansung Park',
+                                      style: TextStyle(fontSize: 12)),                                      
+                                  Text('Paul Sayak',
                                       style: TextStyle(fontSize: 12)),
                                 ]))
                               ],
