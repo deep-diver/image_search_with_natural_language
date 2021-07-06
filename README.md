@@ -12,7 +12,12 @@ Following depicts the architecture design of our application:
 
 Here's a live application demo:
 
-![](https://i.ibb.co/t2PGbV5/with-memorystore2-only-CPU.gif)
+
+https://user-images.githubusercontent.com/22957388/124558759-926c6e00-de58-11eb-8d3a-88e919655ca5.mp4
+
+
+You can also visit this URL for interacting with the application: http://deep-diver.github.io/image_search_with_natural_language/.
+
 
 For details, please refer to this blog post (link to be updated.)
 
