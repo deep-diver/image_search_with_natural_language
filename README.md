@@ -4,6 +4,8 @@
 
 This project shows how to build an image search utility using natural language queries. Our aim is to use different and related serverless GCP services to demonstrate this. At the core of our project is [OpenAI's CLIP model](https://openai.com/blog/clip/). It makes use of two encoders - one for images and one for texts. Each encoder is trained to learn representations such that similar images and text embeddings are projected as close as possible. 
 
+For details, please refer to this blog post (link to be updated).
+
 Following depicts the architecture design of our application:
 
 <p align="center">
@@ -16,10 +18,7 @@ Here's a live application demo:
 https://user-images.githubusercontent.com/22957388/124558759-926c6e00-de58-11eb-8d3a-88e919655ca5.mp4
 
 
-You can also visit this URL for interacting with the application: http://deep-diver.github.io/image_search_with_natural_language/.
-
-
-For details, please refer to this blog post (link to be updated.)
+You can visit this URL for interacting with the application: http://deep-diver.github.io/image_search_with_natural_language/. You can also check out this [Colab Notebook](https://colab.research.google.com/github/deep-diver/image_search_with_natural_language/blob/main/notebooks/Image_Search_CLIP.ipynb) that accompanies this project.
 
 ## Participants
 
