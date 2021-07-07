@@ -25,3 +25,11 @@ For details, please refer to this blog post (link to be updated.)
 
 - ML GDE, [Chansung Park](https://twitter.com/algo_diver)
 - ML GDE, [Paul Sayak](https://twitter.com/RisingSayak)
+
+## Acknowledgements
+
+[ML-GDE program](https://developers.google.com/programs/experts/) for providing GCP credits that supported this project. 
+
+<div align="center">
+  <img src="https://github.com/margaretmz/Cartoonizer-with-TFLite/raw/master/images/made-by-ml-gdes.png" width='100' height='100'/>
+</div>
